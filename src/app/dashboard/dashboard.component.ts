@@ -11,6 +11,7 @@ import {Athlete} from '../Athlete';
 export class DashboardComponent implements OnInit, OnDestroy {
 
   private eventSub: Subscription;
+  private resetSub: Subscription;
 
   private athletes: Athlete[];
 
@@ -19,12 +20,26 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
 
   ngOnInit() {
-    this.eventSub = this.dashboardService.getEvent().subscribe(el => console.log(el));
+    this.athletes = [];
+    this.eventSub = this.dashboardService.getEvent().subscribe(event => {
+      this.applyEventToAthlete(event);
+    });
+
+    this.resetSub = this.dashboardService.getReset().subscribe(() => {
+      this.athletes.forEach(athlete => {
+        athlete.corridorEvent = null;
+        athlete.finishEvent = null;
+      });
+    });
 
     this.dashboardService.fetchAthletes().subscribe(athletes => {
       this.athletes = athletes;
       this.mapHistory();
     });
+  }
+
+  get athleteData() {
+    return this.athletes.filter(athlete => !!athlete.corridorEvent);
   }
 
   mapHistory() {

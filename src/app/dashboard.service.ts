@@ -39,4 +39,8 @@ export class DashboardService {
     this.socket.emit('stateChange', {active: true});
   }
 
+  getReset() {
+    return this.socket
+      .fromEvent('reset');
+  }
 }

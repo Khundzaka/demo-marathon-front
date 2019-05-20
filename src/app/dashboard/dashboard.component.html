@@ -1,3 +1,26 @@
-<p>
-  dashboard works!
-</p>
+<div class="container">
+  <br><br>
+  <div class="row">
+    <div class="col-12">
+      <div class="row header">
+        <div class="col-6"># Name</div>
+        <div class="col-3">Corridor</div>
+        <div class="col-3">Finish</div>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="row">
+        <div class="col-12 fixed-height" #scrollMe [scrollTop]="scrollMe.scrollHeight">
+          <div *ngFor="let athlete of athleteData">
+            <div class="row item">
+              <div class="col-6">{{athlete.number}}. {{athlete.firstName}} {{athlete.lastName}}</div>
+              <div
+                class="col-3">{{athlete.corridorEvent ? (athlete.corridorEvent.time | date:'hh:mm:ss.SSS') : ""}}</div>
+              <div class="col-3">{{athlete.finishEvent ? (athlete.finishEvent.time | date:'hh:mm:ss.SSS') : ""}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

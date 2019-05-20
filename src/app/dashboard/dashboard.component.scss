@@ -1,0 +1,26 @@
+.fixed-height {
+  height: 300px;
+  overflow-y: scroll;
+}
+
+%style-shared {
+  margin: 4px;
+  padding: 4px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.header {
+  @extend %style-shared;
+}
+
+.item {
+  margin: 4px;
+  padding: 4px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  background: #ff9800;
+
+}
