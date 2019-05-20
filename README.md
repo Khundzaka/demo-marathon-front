@@ -4,7 +4,7 @@ For demonstration purposes only.
 
 ### Author: Giorgi Khundzakishvili
 
-This is frontend repository. backend can be found [here](https://github.com/Khundzaka/demo-marathon-back).
+This is frontendg repository. backend can be found [here](https://github.com/Khundzaka/demo-marathon-back).
 
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
